@@ -1728,6 +1728,8 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (*core.Core, ethdb.Database) 
 		engine = blake3pow.New(blake3pow.Config{}, nil, false)
 	}
 
+	fmt.Println("debug engine", ctx.GlobalString(ConsensusEngineFlag.Name), "fakepow", ctx.GlobalBool(FakePoWFlag.Name))
+
 	cache := &core.CacheConfig{
 		TrieCleanLimit:      ethconfig.Defaults.TrieCleanCache,
 		TrieCleanNoPrefetch: ctx.GlobalBool(CacheNoPrefetchFlag.Name),
